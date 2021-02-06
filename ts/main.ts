@@ -196,12 +196,15 @@ $(function () {
 		.done(data => {
 			console.log(data);
 			if (data.code === 0) {
-				$('#output_img').attr('src', 'data:image/png;base64,' + data.png_content)
+				$('#output_img').attr('src', 'data:image/png;base64,' + data.content)
+				toggleResultErrorBox(false);
+			} else {
+				toggleResultErrorBox(true, data.content);
 			}
 		})
 		.fail(data => {
 			console.log(data.responseText);
-
+			toggleResultErrorBox(true, '通信エラーが発生しました。');
 		})
 
 		/* --------------------------------------------------
@@ -264,4 +267,22 @@ function switchSubmitButtonFromHasErrorClass() {
 	const $submit = $('#submit');
 	const disabled = ($('.has-error').length > 0);
 	$submit.prop("disabled", disabled);
+}
+
+/**
+ * レスポンスのエラーの出力の表示を切り替わる
+ * @param is_show 表示するか否か
+ * @param message エラーメッセージボックス内に入れる文字列
+ */
+function toggleResultErrorBox(is_show: boolean, message: string = '') {
+	const $error_response = $('#error-response');
+	const duration = 200;
+
+	if (is_show) {
+		$error_response.text(message)
+					   .show(duration);
+	} else {
+		$error_response.text(message)
+					   .hide(duration);
+	}
 }

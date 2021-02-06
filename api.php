@@ -1,4 +1,8 @@
 <?php
+// 終了時の返り値
+const RC_NORMAL = 0;
+const RC_ERROR  = 1;
+
 // data:image/jpeg;base64,はいらん
 $json_str = file_get_contents('php://input');
 /*
@@ -14,15 +18,21 @@ $json_str = <<<EOM
 }
 EOM;
 */
+
+// JSON文字列が1.5MB以上あるとエラー終了
+if (strlen($json_str) > 1500 * 1000) {
+    exitWithOutputResponse(RC_ERROR, 'リクエストのデータサイズが大きすぎます。');
+}
+
 $json_obj = json_decode($json_str);
-// 入力文字列の設定
+// 入力文字列の設定（文字列は指定文字数以降を切り捨て）
 $json_user_icon_base64 = $json_obj->user_icon;
-$json_user_name        = $json_obj->user_name;
-$json_user_id          = $json_obj->user_id;
-$json_follower_count   = $json_obj->follwers;
-$json_following_count  = $json_obj->follwing;
-$json_twitter_id       = $json_obj->twitter_id;
-$json_instagram_id     = $json_obj->instagram_id;
+$json_user_name        = mb_substr($json_obj->user_name,    0, 30);
+$json_user_id          = mb_substr($json_obj->user_id,      0, 30);
+$json_follower_count   = mb_substr($json_obj->follwers,     0,  9);
+$json_following_count  = mb_substr($json_obj->follwing,     0,  9);
+$json_twitter_id       = mb_substr($json_obj->twitter_id,   0, 15);
+$json_instagram_id     = mb_substr($json_obj->instagram_id, 0, 30);
 
 // 入力文字列の加工
 $user_icon_base64 = $json_user_icon_base64;
@@ -200,13 +210,19 @@ try{
     $image_data = ob_get_contents();
     ob_end_clean();
 
-    $return_json = [
-        'code' => 0,
-        'png_content' => base64_encode($image_data),
-    ];
-    echo json_encode($return_json);
+    // 画像データを含めて正常終了
+    exitWithOutputResponse(RC_NORMAL, base64_encode($image_data));
 }
 catch(Exception $e) {
   // エラー発生
-  echo $e->getMessage();
+  exitWithOutputResponse(RC_ERROR, '画像生成に失敗しました。');
+}
+
+// 設定したコードとレスポンス文字列を出力してプログラム終了する
+function exitWithOutputResponse($code, $content) {
+    echo json_encode([
+        'code' => $code,
+        'content' => $content,
+    ]);
+    exit();
 }
