@@ -1,6 +1,12 @@
 'use strict';
 
 import $ from 'jquery';
+import ModalPlugin from './modal';
+
+// モーダルプラグインの定義
+$.fn.extend({
+	modal: ModalPlugin,
+});
 
 // HTMLが読まれたら実行
 $(function () {
@@ -218,6 +224,12 @@ $(function () {
         $('#copy-area-text').text(textarea_body);
         $('#share-twitter').attr('href', 'https://twitter.com/intent/tweet?' + twitter_parms);
 	});
+
+	// 詳細ボタンを押す
+	$('#detail-button').on('click', () => {
+		const move_modal: any = $('#moveModal'); // modalプラグインを使うための苦肉の策
+		move_modal.modal('show');
+	})
 });
 
 // HTMLのみならず画像を含む全コンテンツが読まれたら実行

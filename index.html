@@ -70,6 +70,7 @@
             <div class="error-message-box"></div>
         </div>
         <button class="submit" id="submit">画像を生成する</button>
+        <p class="detail-button" id="detail-button">利用前に注意事項をお読みください</p>
     </div>
     <!-- Google Adsense -->
     <ins class="adsbygoogle"
@@ -100,6 +101,44 @@
 <footer>
     <a href="https://oguemon.com">おぐえもん.com</a>
 </footer>
+<!-- モーダル -->
+<div class="modal" id="moveModal">
+  <div class="modal-dialog">
+    <div class="content">
+      <div class="header">
+        <div class="title">利用時の注意事項</div>
+      </div>
+      <div class="body">
+            <h3>このツールについて</h3>
+            <ul>
+                <li>本サービスは、入力された情報に基づいてClubhouseのアカウント画面のスクリーンショットに似た画像を出力します。</li>
+                <li>本サービスは、ネタツールです。本サービスをジョーク以外の用途（例えば詐欺行為など）に決して用いないでください。</li>
+                <li>不具合やご要望、お問い合わせ等がございましたら、おぐえもん（<a href="https://twitter.com/oguemon_com/" target="_blank">@oguemon_com</a>）までご連絡ください。</li>
+            </ul>
+            <h3>入力の仕様</h3>
+            <ul>
+                <li>全ての項目が入力任意です。</li>
+                <li>アイコン画像は、1MB以下のGIF、JPG、PNG形式のみ有効です。</li>
+                <li>アイコン画像が長方形なら縦横比を変えて正方形にします。綺麗な仕上がりを求めるなら正方形の画像を使用することを勧めます。</li>
+                <li>ユーザ名は30字以内のみ有効です。</li>
+                <li>ユーザIDは30字以内で、英数字と_のみ使用できます。</li>
+                <li>FollowersとFollowingは10億未満の自然数のみ有効です。</li>
+                <li>Twitter_IDは15字以内で、英数字と_のみ使用できます。</li>
+                <li>Instagram_IDは30字以内で、英数字と_と.のみ使用できます。</li>
+            </ul>
+            <h3>免責事項</h3>
+            <ul>
+                <li>本サービスは、バグ等の理由により不正な出力を行う場合があります。</li>
+                <li>本サービスは、予告なく内容を変更または削除する場合があります。</li>
+                <li>本サービスを利用して生じた一切の損害およびトラブル等につきまして、運営者（おぐえもん）は一切の責任を負いません。</li>
+            </ul>
+      </div>
+      <div class="footer">
+        <div class="close-btn" data-dismiss="modal">閉じる</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script type="text/javascript" src="main.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

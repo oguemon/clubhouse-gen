@@ -1,0 +1,146 @@
+
+/*
+ *  モーダルパネル
+ */
+.modal-dialog {
+	.content {
+		font-size: 12px;
+		background: $white-color;
+		border-radius: 5px;
+		box-shadow: 1px 1px 1px rgba(85,85,85,0.1);
+
+		.header {
+			margin: 0 20px;
+			padding: 20px 0 10px;
+			border-bottom: 1px solid $border-base-color;
+
+			.title {
+				color: $main-color;
+				font-size: 200%;
+				font-weight: bold;
+				line-height: 1.2;
+			}
+		}
+		.body {
+			padding: 10px 20px;
+			text-align: justify;
+
+			strong {
+				color: $accent-red;
+				font-weight: bold;
+			}
+
+			p {
+				margin: 0 0 10px;
+				line-height: 1.8;
+			}
+
+			a {
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+
+			h3 {
+				margin: 15px 0 10px;
+				color: $main-color;
+				font-size: 150%;
+
+				&:first-child {
+					margin-top: 5px;
+				}
+			}
+
+			ul {
+				margin: 0 0 0 20px;
+				text-align: justify;
+			}
+
+			li {
+				margin: 0 0 10px;
+				list-style-type: disc;
+
+				&:last-child {
+					margin: 0;
+				}
+			}
+
+			table {
+				margin: 10px 0;
+				border-collapse: collapse;
+
+				tr {
+					border-bottom: 1px solid $border-base-color;
+					text-align: left;
+
+					th, td {
+						padding: 5px 10px;
+
+						&.center {
+							text-align: center;
+						}
+
+						&.right {
+							text-align: right;
+						}
+					}
+
+					&:nth-child(2n+1) {
+						background-color: $white-color;
+					}
+
+					&:nth-child(2n) {
+						background-color: #f3f3f3;
+					}
+
+					th {
+						color: $white-color;
+						background: $main-color;
+					}
+				}
+			}
+
+			.box {
+				margin-bottom: 10px;
+				padding: 10px;
+				background-color: #f5f5f5;
+				border-radius: 5px;
+			}
+		}
+
+		.footer {
+			padding-top: 10px;
+			padding-bottom: 20px;
+
+			.close-btn {
+				width: 160px;
+				margin: 0 auto;
+				padding: 10px;
+				color: $white-color;
+				font-size: 120%;
+				font-weight: bold;
+				text-align: center;
+				background-color: $main-color;
+				display: block;
+				border-radius: 3px;
+				box-shadow: 1px 1px 1px rgba(51,51,51,0.1);
+				transition: background-color .2s linear;
+				cursor: pointer;
+
+				&:hover {
+					background: lighten($main-color, 8%);
+				}
+
+				&:active {
+					box-shadow: none;
+				}
+
+				&:focus {
+					outline: none;
+				}
+			}
+		}
+  	}
+}
