@@ -89,6 +89,11 @@ header {
 		font-size: 80%;
 		text-align: center;
 	}
+
+	.author {
+		width: 160px;
+		margin: 15px auto 5px;
+	}
 }
 
 .wrapper {
@@ -146,4 +151,16 @@ article {
 
 .output_img_wrapper {
 	width: 100%;
+}
+
+.attention-para {
+	margin-top: 5px;
+	color: $accent-red;
+	text-align: center;
+}
+
+// フッター
+footer {
+	padding: 10px 0;
+	text-align: center;
 }
