@@ -182,7 +182,6 @@ $(function () {
 			twitter_id : text_twitter_id,
 			instagram_id : text_instagram_id,
 		}
-		console.log(output_json);
 
 		// 非同期送信
 		$.ajax({
@@ -194,7 +193,6 @@ $(function () {
 			data:          JSON.stringify(output_json)
 		})
 		.done(data => {
-			console.log(data);
 			if (data.code === 0) {
 				$('#output_img').attr('src', 'data:image/png;base64,' + data.content)
 				toggleResultErrorBox(false);
@@ -203,7 +201,6 @@ $(function () {
 			}
 		})
 		.fail(data => {
-			console.log(data.responseText);
 			toggleResultErrorBox(true, '通信エラーが発生しました。');
 		})
 
