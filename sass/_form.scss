@@ -91,7 +91,6 @@
 }
 
 input[type=text],
-input[type=number],
 textarea {
 	padding: 3px 10px;
 	font-size: 130%;
@@ -106,9 +105,10 @@ textarea {
 	}
 }
 
-input[type=number] {
-	width: 80px;
+input.number {
+	width: 100px;
 }
+
 button.submit {
 	width: 100%;
 	max-width: 320px;

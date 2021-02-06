@@ -51,7 +51,7 @@ $(function () {
 	});
 
 	// ユーザ名が入力されたら
-	$('#user_name').on('keyup', e => {
+	$('#user_name').on('input', e => {
 		const input = String($(e.target).val());
 		const has_error: boolean = (input.length > 30);
 		toggleHasErrorClass($(e.target), has_error);
@@ -62,7 +62,7 @@ $(function () {
 	});
 
 	// ユーザIDが入力されたら
-	$('#user_id').on('keyup', e => {
+	$('#user_id').on('input', e => {
 		const input = String($(e.target).val());
 		const reg = /^\w{0,30}$/;
 		const has_error: boolean = (input.match(reg) === null);
@@ -74,7 +74,7 @@ $(function () {
 	});
 
 	// フォロー数かフォロワー数が入力されたら
-	$('#followers,#following').on('keyup', e => {
+	$('#followers, #following').on('input', e => {
 		const reg = /^\d*$/;
 		let has_error = false;
 
@@ -120,7 +120,7 @@ $(function () {
 	});
 
 	// TwitterのIDが入力されたら
-	$('#twitter_id').on('keyup', e => {
+	$('#twitter_id').on('input', e => {
 		const input = String($(e.target).val());
 		const reg = /^\w{0,15}$/;
 		const has_error: boolean = (input.match(reg) === null);
@@ -132,7 +132,7 @@ $(function () {
 	});
 
 	// InstagramのIDが入力されたら
-	$('#instagram_id').on('keyup', e => {
+	$('#instagram_id').on('input', e => {
 		const input = String($(e.target).val());
 		const reg = /^[\w\.]{0,30}$/;
 		const has_error: boolean = (input.match(reg) === null);
