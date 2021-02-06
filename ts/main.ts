@@ -50,8 +50,104 @@ $(function () {
 		fr.readAsDataURL(img_data);
 	});
 
+	// ユーザ名が入力されたら
+	$('#user_name').on('keyup', e => {
+		const input = String($(e.target).val());
+		const has_error: boolean = (input.length > 30);
+		toggleHasErrorClass($(e.target), has_error);
+		toggleErrorBox($(e.target), has_error, "文字数が多すぎます。")
+
+		// 生成ボタンの押下可能性を検証して有効無効を切替
+		switchSubmitButtonFromHasErrorClass();
+	});
+
+	// ユーザIDが入力されたら
+	$('#user_id').on('keyup', e => {
+		const input = String($(e.target).val());
+		const reg = /^\w{0,30}$/;
+		const has_error: boolean = (input.match(reg) === null);
+		toggleHasErrorClass($(e.target), has_error);
+		toggleErrorBox($(e.target), has_error, "無効な形式の文字列です。")
+
+		// 生成ボタンの押下可能性を検証して有効無効を切替
+		switchSubmitButtonFromHasErrorClass();
+	});
+
+	// フォロー数かフォロワー数が入力されたら
+	$('#followers,#following').on('keyup', e => {
+		const reg = /^\d*$/;
+		let has_error = false;
+
+		// フォロワー数
+		const $followers = $('#followers');
+		const input_followers = String($followers.val());
+		const has_error_followers: boolean = (input_followers.match(reg) === null);
+		if (has_error_followers) {
+			toggleHasErrorClass($followers, true);
+			toggleErrorBox($followers, true, "フォロワー数は数字で入力ください。")
+			has_error = true;
+		} else if (Number(input_followers) > 999999999) {
+			toggleHasErrorClass($followers, true);
+			toggleErrorBox($followers, true, "フォロワー数、さすがに見栄張りすぎやわ。")
+			has_error = true;
+		} else {
+			toggleHasErrorClass($followers, false);
+		}
+
+		// フォロー数
+		const $following = $('#following');
+		const input_following = String($following.val());
+		const has_error_following: boolean = (input_following.match(reg) === null);
+		if (has_error_following) {
+			toggleHasErrorClass($following, true);
+			toggleErrorBox($following, true, "フォロー数は数字で入力ください。")
+			has_error = true;
+		} else if (Number(input_following) > 999999999) {
+			toggleHasErrorClass($following, true);
+			toggleErrorBox($following, true, "フォロー数が多すぎます。")
+			has_error = true;
+		} else {
+			toggleHasErrorClass($following, false);
+		}
+
+		// エラーなし
+		if (has_error === false) {
+			toggleErrorBox($(e.target), false)
+		}
+
+		// 生成ボタンの押下可能性を検証して有効無効を切替
+		switchSubmitButtonFromHasErrorClass();
+	});
+
+	// TwitterのIDが入力されたら
+	$('#twitter_id').on('keyup', e => {
+		const input = String($(e.target).val());
+		const reg = /^\w{0,15}$/;
+		const has_error: boolean = (input.match(reg) === null);
+		toggleHasErrorClass($(e.target), has_error);
+		toggleErrorBox($(e.target), has_error, "無効な形式の文字列です。")
+
+		// 生成ボタンの押下可能性を検証して有効無効を切替
+		switchSubmitButtonFromHasErrorClass();
+	});
+
+	// InstagramのIDが入力されたら
+	$('#instagram_id').on('keyup', e => {
+		const input = String($(e.target).val());
+		const reg = /^[\w\.]{0,30}$/;
+		const has_error: boolean = (input.match(reg) === null);
+		toggleHasErrorClass($(e.target), has_error);
+		toggleErrorBox($(e.target), has_error, "無効な形式の文字列です。")
+		switchSubmitButtonFromHasErrorClass();
+
+		// 生成ボタンの押下可能性を検証して有効無効を切替
+		switchSubmitButtonFromHasErrorClass();
+	});
+
 	//キャンバスに文字を描く
 	$('#submit').on('click', () => {
+		// 生成ボタンの押下可能性を検証して有効無効を切替
+		switchSubmitButtonFromHasErrorClass();
 
         // 結果画面を表示
         $('#result').slideDown(400);
@@ -72,8 +168,8 @@ $(function () {
 		// テキストを取得
 		const text_user_name = $('#user_name').val();
 		const text_user_id = $('#user_id').val();
-		const text_follwers = $('#follwers').val();
-		const text_follwing = $('#follwing').val();
+		const text_follwers = $('#followers').val();
+		const text_follwing = $('#following').val();
 		const text_twitter_id = $('#twitter_id').val();
 		const text_instagram_id = $('#instagram_id').val();
 
@@ -127,3 +223,45 @@ $(function () {
 // HTMLのみならず画像を含む全コンテンツが読まれたら実行
 $(window).on('load', function () {
 });
+
+/**
+ * エラーメッセージボックスの表示を切り替える
+ * @param $form フォームのJQuery要素
+ * @param add_class 表示するか否か
+ */
+function toggleHasErrorClass($form: JQuery<HTMLElement>, add_class: boolean) {
+
+	if (add_class) {
+		$form.addClass('has-error');
+	} else {
+		$form.removeClass('has-error');
+	}
+}
+
+/**
+ * エラーメッセージボックスの表示を切り替える
+ * @param $form フォームのJQuery要素
+ * @param is_show 表示するか否か
+ * @param message エラーメッセージボックス内に入れる文字列
+ */
+function toggleErrorBox($form: JQuery<HTMLElement>, is_show: boolean, message: string = "") {
+	const $message_box = $form.parents('.line').children('.error-message-box');
+	const duration = 200;
+
+	if (is_show) {
+		$message_box.text(message)
+					.show(duration);
+	} else {
+		$message_box.text(message)
+					.hide(duration);
+	}
+}
+
+/**
+ * エラーがあるかに応じて生成ボタンの有効・無効を切り替える
+ */
+function switchSubmitButtonFromHasErrorClass() {
+	const $submit = $('#submit');
+	const disabled = ($('.has-error').length > 0);
+	$submit.prop("disabled", disabled);
+}

@@ -32,26 +32,43 @@
 <div class="wrapper">
     <div class="box">
         <div class="title">User Icon</div>
-        <img class="preview_img" id="user_icon_preview">
-        <input type="file" id="user_icon">
+        <div class="line">
+            <img class="preview_img" id="user_icon_preview">
+            <input type="file" id="user_icon">
+        </div>
 
         <div class="title">User Name & ID</div>
-        <p><input type="text" id="user_name" placeholder="ユーザ名"></p>
-        <p><span class="atmark">@</span><input type="text" id="user_id" placeholder="user_id"></p>
+        <div class="line">
+            <input type="text" id="user_name" placeholder="ユーザ名">
+            <div class="error-message-box"></div>
+        </div>
+        <div class="line">
+            <span class="atmark">@</span><input type="text" id="user_id" placeholder="user_id">
+            <div class="error-message-box"></div>
+        </div>
 
         <div class="title">Follow</div>
-        <div class="follow-box">
-            <div class="follow-Item">
-                <input type="number" id="follwers" value="0"> Follwers
+        <div class="line">
+            <div class="follow-box">
+                <div class="follow-Item">
+                    <input type="number" id="followers" value="0"> Followers
+                </div>
+                <div class="follow-Item">
+                    <input type="number" id="following" value="0"> Following
+                </div>
             </div>
-            <div class="follow-Item">
-                <input type="number" id="follwing" value="0"> Follwing
-            </div>
+            <div class="error-message-box"></div>
         </div>
 
         <div class="title">Other SNS</div>
-        <p><span class="atmark">@</span><input type="text" id="twitter_id" placeholder="Twitter_ID"></p>
-        <p><span class="atmark">@</span><input type="text" id="instagram_id" placeholder="Instagram_ID"></p>
+        <div class="line">
+            <span class="atmark">@</span><input type="text" id="twitter_id" placeholder="Twitter_ID">
+            <div class="error-message-box"></div>
+        </div>
+        <div class="line">
+            <span class="atmark">@</span><input type="text" id="instagram_id" placeholder="Instagram_ID">
+            <div class="error-message-box"></div>
+        </div>
         <button class="submit" id="submit">画像を生成する</button>
     </div>
     <!-- Google Adsense -->

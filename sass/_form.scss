@@ -39,8 +39,8 @@
 		margin: 10px auto;
 	}
 
-	p {
-		padding-bottom: 10px;
+	.line {
+		margin: 10px 20px;
 	}
 
 	.atmark {
@@ -49,10 +49,12 @@
 	}
 
 	.error-message-box {
+		margin-top: 10px;
 		padding: 10px;
 		color: $accent-red;
 		font-weight: bold;
 		background-color: #fff5f5;
+		display: none;
 	}
 
     .copy-area {
@@ -96,6 +98,12 @@ textarea {
     font-family: Nunito, -apple-system, BlinkMacSystemFont, Helvetica Neue, Segoe UI, Hiragino Kaku Gothic ProN, Hiragino Sans, ヒラギノ角ゴ ProN W3, Arial, メイリオ, Meiryo, sans-serif;
 	border: 1px solid $border-base-color;
 	border-radius: $border-radius;
+
+	&.has-error {
+		background-color: #fee;
+		color: #f55;
+		outline-color: #f55;
+	}
 }
 
 input[type=number] {
@@ -113,5 +121,13 @@ button.submit {
 	border: none;
 	border-radius: $border-radius;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
-    display: block;
+	display: block;
+	cursor: pointer;
+
+	&:disabled {
+		color: #888;
+		font-weight: normal;
+		background-color: #eee;
+		cursor: not-allowed;
+	}
 }
