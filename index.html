@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>話題のSNSを始めた報告ジェネレーター｜おぐえもん.com</title>
+    <link rel="stylesheet" type="text/css" media="all" href="main.css" />
+	<meta name="description"  content="">
+</head>
+<body ontouchstart="">
+<header>
+    <div class="logo-icon"><img src="img/ossan-icon.png"></div>
+    <div class="logo-title">話題のSNSを始めた報告ジェネレーター</div>
+    <div class="description">
+        話題のSNSのスクショをSNSにアップして、<br>
+        話題のSNSを招待される人脈があることをみんなに自慢しよう！
+    </div>
+</header>
+<div class="wrapper">
+    <div class="box">
+        <div class="title">User Icon</div>
+        <img class="preview_img" id="user_icon_preview">
+        <input type="file" id="user_icon">
+
+        <div class="title">User Name & ID</div>
+        <p><input type="text" id="user_name" placeholder="ユーザ名"></p>
+        <p><span class="atmark">@</span><input type="text" id="user_id" placeholder="user_id"></p>
+
+        <div class="title">Follow</div>
+        <div class="follow-box">
+            <div class="follow-Item">
+                <input type="number" id="follwers" value="0"> Follwers
+            </div>
+            <div class="follow-Item">
+                <input type="number" id="follwing" value="0"> Follwing
+            </div>
+        </div>
+
+        <div class="title">Other SNS</div>
+        <p><span class="atmark">@</span><input type="text" id="twitter_id" placeholder="Twitter_ID"></p>
+        <p><span class="atmark">@</span><input type="text" id="instagram_id" placeholder="Instagram_ID"></p>
+        <button class="submit" id="submit">画像を生成する</button>
+    </div>
+    <div class="box" id="result" style="display: none;">
+        <div class="title">Result</div>
+        <div class="output_img_wrapper">
+            <img class="result_img" id="output_img"></img>
+        </div>
+        <div class="title">Let's Share!</div>
+        <div class="copy-area">
+          <textarea id="copy-area-text"></textarea>
+        </div>
+        <div class="share-area">
+          <a class="share-button" id="share-twitter" target="_blank"></a>
+        </div>
+        <p>▲ 生成された画像をTweetに添付しよう！</p>
+    </div>
+</div>
+
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>

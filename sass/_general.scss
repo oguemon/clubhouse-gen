@@ -1,0 +1,149 @@
+/*
+ * 全般的なレイアウト
+ */
+* {
+	margin: 0;
+	padding: 0;
+
+	-webkit-appearance: none;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	font-size: 16px;
+    font-family: Nunito, -apple-system, BlinkMacSystemFont, Helvetica Neue, Segoe UI, Hiragino Kaku Gothic ProN, Hiragino Sans, ヒラギノ角ゴ ProN W3, Arial, メイリオ, Meiryo, sans-serif;
+    font-weight: normal;
+	line-height: 1.6;
+	color: $text-base-color;
+    word-wrap: break-word;
+    background-color: #e4f3ff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "kern";
+    font-kerning: normal;
+}
+
+a {
+	color: $text-base-color;
+	text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+li {
+	list-style-type: none;
+}
+
+.button {
+	max-width: 100%;
+	width: 360px;
+	margin: 20px auto;
+	padding: 10px;
+	color: $white-color;
+	font-weight: bold;
+	text-align: center;
+	background: $main-color;
+	border-radius: $border-radius;
+	display: block;
+	transition: background-color $hover-action-time ease-in-out, box-shadow $hover-action-time ease-in-out;
+
+	&:hover {
+		background: lighten($main-color, 10%);
+		box-shadow: 1px 1px 5px rgba(0,0,0,0.15);
+	}
+}
+
+header {
+	padding: 15px;
+	background-color: $white-color;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+
+	.logo-icon {
+		width: 100px;
+		margin: 0 auto;
+	}
+	.logo-title {
+		margin-top: 10px;
+		font-size: 150%;
+		font-weight: bold;
+		text-align: center;
+
+		@include mq() {
+			font-size: 120%;
+		}
+	}
+
+	.description {
+		margin-top: 10px;
+		color: $text-sub-color;
+		font-size: 80%;
+		text-align: center;
+	}
+}
+
+.wrapper {
+	width: $wrapper-width;
+	margin: 0 auto;
+
+	@include mq() {
+		width: 100%;
+	}
+}
+
+.wrapper-main {
+	padding: 20px $margin-site-side;
+
+	@include mq() {
+		padding: 0;
+  }
+}
+
+.clearfix {
+	&:before, &:after {
+		clear: both;
+		content: "";
+		display: block;
+	}
+}
+
+#site-main {
+	min-width: $wrapper-width;
+	width: 100%;
+	margin: 0 auto;
+
+	@include mq() {
+		min-width: auto;
+  }
+}
+
+#site-content {
+	width: 680px;
+	float: left;
+
+	@include mq() {
+		width: 100%;
+		//background: $white-color;
+		float: none;
+	}
+}
+
+// 記事（SingleとPage）
+article {
+	@include mq() {
+		background: $white-color;
+	}
+}
+
+.output_img_wrapper {
+	width: 100%;
+}

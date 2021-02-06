@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/*
+ *  外部参照用（全記事）
+ */
+
+// Googleフォント(Poppins)
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,900&display=swap');
+
+// リセット
+@import "reset";
+
+// 変数などの宣言
+@import "define";
+
+// 全般的なレイアウト
+@import "general";
+
+// フォーム
+@import "form";

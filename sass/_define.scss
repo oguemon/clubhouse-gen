@@ -1,0 +1,61 @@
+/*
+ *  変数等の宣言
+ */
+
+// SPサイズのとき
+@mixin mq() {
+	@media screen and (max-width: 640px) {
+		@content;
+	}
+}
+
+// SPの横幅狭いもののとき
+@mixin mqn() {
+	@media screen and (max-width: 360px) {
+		@content;
+	}
+}
+
+// 色関係
+$main-color: #47b8e8;
+$main-light-color: #bbe8ff;
+$main-very-light-color: #e6f7ff;
+$white-color: #fff;
+
+$bg-main-color: #f6f9fb;
+
+$text-base-color: #333;
+$text-sub-color: #888;
+
+$border-base-color: #ccc;
+$border-sub-color: #eee;
+$border-toppage-article: #e9f0f5;
+
+$accent-red: #ee4158;
+
+$gray-light-color: #f7f7f7;
+
+$menu-icon-color: #333;
+
+$category-color: $main-color;
+
+$go-to-top-bg-color: #555;
+
+$footer-bg-color: #333;
+$footer-font-color: #999;
+
+$popup-color: #31ce67;
+
+// サイズ関係
+$wrapper-width: 640px;
+$margin-site-side: 30px;
+
+$sp-postbody-side-margin: 15px;
+
+$border-radius: 5px;
+
+$sns-icon-width: 30px;
+$sns-icon-height: 30px;
+
+// 時間
+$hover-action-time: .2s;

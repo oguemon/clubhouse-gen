@@ -1,0 +1,117 @@
+/*
+ * トップで使用するデザイン
+ */
+
+.box {
+	margin: 20px 0;
+	padding: 30px;
+	background-color: $white-color;
+	border-radius: $border-radius;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+
+	@include mq() {
+		padding: 20px;
+	}
+
+	.title {
+		margin-top: 20px;
+		font-size: 150%;
+		font-weight: bold;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	.follow-box {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	.preview_img {
+		width: 240px;
+		max-width: 100%;
+		margin: 10px auto;
+	}
+
+	.result_img {
+		width: 100%;
+		margin: 10px auto;
+	}
+
+	p {
+		padding-bottom: 10px;
+	}
+
+	.atmark {
+		margin-right: 10px;
+		font-size: 130%;
+	}
+
+	.error-message-box {
+		padding: 10px;
+		color: $accent-red;
+		font-weight: bold;
+		background-color: #fff5f5;
+	}
+
+    .copy-area {
+        padding: 0 10px 5px;
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin: 0;
+            color: $text-base-color;
+            font-family: inherit;
+            font-size: 120%;
+            resize: vertical;
+        }
+    }
+
+    .share-area {
+        width: 100%;
+        padding-bottom:5px;
+        display: table;
+        border-collapse: separate;
+        border-spacing: 5px 0;
+
+        .share-button {
+            height: 35px;
+            display: table-cell;
+            border-radius: 5px;
+
+            &#share-twitter {
+                background: url(img/share-tweet.svg) center center no-repeat, #1da1f2;
+            }
+        }
+    }
+}
+
+input[type=text],
+input[type=number],
+textarea {
+	padding: 3px 10px;
+	font-size: 130%;
+    font-family: Nunito, -apple-system, BlinkMacSystemFont, Helvetica Neue, Segoe UI, Hiragino Kaku Gothic ProN, Hiragino Sans, ヒラギノ角ゴ ProN W3, Arial, メイリオ, Meiryo, sans-serif;
+	border: 1px solid $border-base-color;
+	border-radius: $border-radius;
+}
+
+input[type=number] {
+	width: 80px;
+}
+button.submit {
+	width: 100%;
+	max-width: 320px;
+    margin: 15px auto 0;
+    padding: 10px;
+    color: #fff;
+    font-size: 130%;
+    font-weight: bold;
+	background-color: $main-color;
+	border: none;
+	border-radius: $border-radius;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    display: block;
+}
