@@ -15,5 +15,8 @@
     "webpack": "5.77.0",
     "webpack-cli": "5.0.1",
     "webpack-stream": "7.0.0"
+  },
+  "overrides": {
+    "glob-parent": ">=5.1.2"
   }
 }
