@@ -4,16 +4,16 @@
   "description": "SassとTypscriptのコンパイル。",
   "private": true,
   "devDependencies": {
-    "@types/jquery": "latest",
-    "browser-sync": "latest",
-    "gulp": "latest",
-    "gulp-sass": "latest",
-    "html2canvas": "latest",
-    "jquery": "latest",
-    "ts-loader": "latest",
-    "typescript": "latest",
-    "webpack": "latest",
-    "webpack-cli": "latest",
-    "webpack-stream": "latest"
+    "@types/jquery": "3.5.16",
+    "browser-sync": "2.29.1",
+    "gulp": "4.0.2",
+    "gulp-sass": "5.1.0",
+    "html2canvas": "1.4.1",
+    "jquery": "3.6.4",
+    "ts-loader": "9.4.2",
+    "typescript": "5.0.3",
+    "webpack": "5.77.0",
+    "webpack-cli": "5.0.1",
+    "webpack-stream": "7.0.0"
   }
 }
