@@ -3,6 +3,12 @@
   "version": "4.0.0",
   "description": "SassとTypscriptのコンパイル。",
   "private": true,
+  "scripts": {
+    "dev": "gulp",
+    "build": "yarn build:sass && yarn build:ts",
+    "build:sass": "gulp compileSass",
+    "build:ts": "gulp compileTS"
+  },
   "devDependencies": {
     "@types/jquery": "3.5.16",
     "browser-sync": "2.29.1",
@@ -10,10 +16,11 @@
     "gulp-sass": "5.1.0",
     "html2canvas": "1.4.1",
     "jquery": "3.6.4",
+    "sass": "1.62.1",
     "ts-loader": "9.4.2",
-    "typescript": "5.0.3",
-    "webpack": "5.77.0",
-    "webpack-cli": "5.0.1",
+    "typescript": "5.0.4",
+    "webpack": "5.82.1",
+    "webpack-cli": "5.1.1",
     "webpack-stream": "7.0.0"
   },
   "overrides": {
