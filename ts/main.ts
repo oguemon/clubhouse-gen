@@ -216,7 +216,7 @@ $(function () {
         // Twitterとテキストボックス
         const message_body: string = 'なんかまだ良くわからないけど、Clubhouse始めました😂' + "\n"
 								   + 'もしやってるよって方がいたらフォローお願いします🙏✨';
-        const site_url: string = 'https://oguemon.com/clubhouse-gen/'
+        const site_url: string = 'https://clubhouse-gen.oguemon.com/'
         const hashtag: string  = 'クラブハウス,Clubhouse,話題のSNSを始めた報告ジェネレーター';
         const textarea_body: string = message_body + "\n" + site_url + " #クラブハウス #Clubhouse #話題のSNSを始めた報告ジェネレーター";
         const twitter_parms: string = 'url=' + encodeURI(site_url) + '&text=' + encodeURI(message_body) + '&hashtags=' + encodeURI(hashtag);

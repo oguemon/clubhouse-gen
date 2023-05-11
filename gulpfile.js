@@ -21,7 +21,7 @@ function compileTS () {
 
 function buildServer (done) {
     browsersync.init({
-        proxy: 'https://oguemon.localhost/clubhouse-gen/',
+        proxy: 'https://clubhouse-gen.oguemon.localhost/',
         open:"external",
         online: true,
     });

@@ -197,7 +197,7 @@ try{
     // 紹介者名を貼り付け
     $pos_nominator = imagettftext($base_img, 28, 0, 190, 1335, $color_font, $font_file_l, 'Nominated by');
     $pos_nominator_rb_x = $pos_nominator[2]; // 右下のx座標
-    $pos_nominator = imagettftext($base_img, 28, 0, $pos_nominator_rb_x + 10, 1335, $color_font, $font_file_sb, 'https://oguemon.com/clubhouse-gen/');
+    $pos_nominator = imagettftext($base_img, 28, 0, $pos_nominator_rb_x + 10, 1335, $color_font, $font_file_sb, 'https://clubhouse-gen.oguemon.com/');
 
     // ヘッダーを設定
     // header('Content-Type: image/png');
