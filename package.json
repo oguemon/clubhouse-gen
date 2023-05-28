@@ -15,7 +15,7 @@
     "gulp": "4.0.2",
     "gulp-sass": "5.1.0",
     "html2canvas": "1.4.1",
-    "jquery": "3.6.4",
+    "jquery": "3.7.0",
     "sass": "1.62.1",
     "ts-loader": "9.4.3",
     "typescript": "5.0.4",
