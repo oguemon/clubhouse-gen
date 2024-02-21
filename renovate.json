@@ -1,5 +1,19 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base", ":disableDependencyDashboard"],
-  "schedule": ["before 8am"]
+  "schedule": ["before 8am"],
+  "packageRules": [
+    {
+      "groupName": "patch",
+      "matchUpdateTypes": ["patch"],
+      "matchPackagePatterns": ["*"],
+      "matchDepTypes": ["dependencies", "devDependencies", "peerDependencies"]
+    },
+    {
+      "groupName": "minor",
+      "matchUpdateTypes": ["minor"],
+      "matchPackagePatterns": ["*"],
+      "matchDepTypes": ["dependencies", "devDependencies", "peerDependencies"]
+    }
+  ]
 }
