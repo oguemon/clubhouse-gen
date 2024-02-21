@@ -13,7 +13,7 @@
     "@types/jquery": "3.5.19",
     "html2canvas": "1.4.1",
     "jquery": "3.7.1",
-    "sass": "1.67.0",
+    "sass": "1.71.1",
     "typescript": "5.2.2",
     "vite": "4.4.9"
   }
