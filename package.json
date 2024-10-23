@@ -10,7 +10,7 @@
     "lint:type": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/jquery": "3.5.30",
+    "@types/jquery": "3.5.32",
     "html2canvas": "1.4.1",
     "jquery": "3.7.1",
     "sass": "1.77.5",
